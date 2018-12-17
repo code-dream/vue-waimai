@@ -23,21 +23,21 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  height: 45px;
+  height: 55px;
   font-size: 24px;
-  line-height: 45px;
+  line-height: 55px;
   text-align: center;
   color: #fff;
   background-color: #23a393;
 }
 .searchContent{
   text-align: center;
-  margin-top: 55px;
+  margin-top: 75px;
 }
 .searchContent input{
   width: 70%;
   height: 35px;
-  border: 1px;
+  border: 1px solid #bcbab8;
   border-radius: 4px;
   font-size: 18px;
   background-color: #eeeeee;

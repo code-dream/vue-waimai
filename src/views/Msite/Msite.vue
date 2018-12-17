@@ -8,34 +8,41 @@
         <span>登录注册</span>
       </div>
       <div class="mainTitle">
-        <span>我的地址***</span>
+        <span>我的地址</span>
       </div>
     </div>
-    <div class="swiper">
-      <div class="mainWrap">
-        <div class="mainContent">1</div>
-        <div class="mainContent">2</div>
-        <div class="mainContent">3</div>
-        <div class="mainContent">4</div>
-      </div>
-      <div class="mainWrap">
-        <div class="mainContent">5</div>
-        <div class="mainContent">6</div>
-        <div class="mainContent">7</div>
-        <div class="mainContent">8</div>
-      </div>
-      <div class="mainWrap">
-        <div class="mainContent">9</div>
-        <div class="mainContent">10</div>
-        <div class="mainContent">11</div>
-        <div class="mainContent">12</div>
-      </div>
-      <div class="mainWrap">
-        <div class="mainContent">5</div>
-        <div class="mainContent">6</div>
-        <div class="mainContent">7</div>
-        <div class="mainContent">8</div>
-      </div>
+    <div class="lunbo">
+      <swiper :options='swiperOption' ref="mySwiper">
+        <swiperSlide>
+          <div class="mainWrap">
+            <div class="mainContent">1</div>
+            <div class="mainContent">2</div>
+            <div class="mainContent">3</div>
+            <div class="mainContent">4</div>
+          </div>
+          <div class="mainWrap">
+            <div class="mainContent">5</div>
+            <div class="mainContent">6</div>
+            <div class="mainContent">7</div>
+            <div class="mainContent">8</div>
+          </div>
+        </swiperSlide>
+        <swiperSlide>
+          <div class="mainWrap">
+            <div class="mainContent">9</div>
+            <div class="mainContent">10</div>
+            <div class="mainContent">11</div>
+            <div class="mainContent">12</div>
+          </div>
+          <div class="mainWrap">
+            <div class="mainContent">5</div>
+            <div class="mainContent">6</div>
+            <div class="mainContent">7</div>
+            <div class="mainContent">8</div>
+          </div>
+        </swiperSlide>
+        <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
     </div>
     <div class="shopList">
       <p class="tip">
@@ -98,8 +105,23 @@
   </div>
 </template>
 <script>
+import 'swiper/dist/css/swiper.css'
+import {swiper, swiperSlide} from 'vue-awesome-swiper'
 export default {
-  
+  data () {
+    return {
+      swiperOption: {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
+      }
+    }
+  },
+  components: {
+    swiper,
+    swiperSlide
+  }
 }
 </script>
 <style>
@@ -112,8 +134,9 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  height: 45px;
-  line-height: 45px;
+  z-index: 11;
+  height: 55px;
+  line-height: 55px;
   text-align: center;
   color: #fff;
   background-color: #23a393;
@@ -136,16 +159,13 @@ export default {
   margin: 0 80px 0 40px;
 }
 /* 轮播图样式 */
-.swiper{
-  height: 200px;
-  overflow: scroll;
-  margin-top: 45px;
-  background-color: #acd;
+.lunbo{
+  margin-top: 55px;
 }
-.swiper .mainWrap{
+.mainWrap{
   display: flex;
 }
-.swiper .mainWrap .mainContent{
+.mainWrap .mainContent{
   flex: 1;
   text-align: center;
   height: 100px;

@@ -1,34 +1,36 @@
 <template>
-  <div class="order">
-      <div class="orderTitle">
+  <div class="profile">
+      <div class="profileTitle">
         <span>我的</span>
       </div>
-      <div class="login">
-        <div class="photo">
+      <div class="profileLogin">
+        <router-link to="/login">
+          <div class="photo">
            <div></div>
-        </div>
-        <div class="arr">
-          <i class="iconfont icon-you"></i>
-        </div>
-        <div class="denglu">
-          <div>登录/注册</div>
-          <div>暂无绑定手机号</div>
-        </div>
+          </div>
+          <div class="arr">
+            <i class="iconfont icon-you"></i>
+          </div>
+          <div class="denglu">
+            <div>登录/注册</div>
+            <div>暂无绑定手机号</div>
+          </div>
+        </router-link>
       </div>
-      <div class="perInf">
-        <div class="perContent">
+      <div class="profileInf">
+        <div class="profileContent">
           <div class="kuai">
             <span><b>0.00</b>元</span><br>
             <span>我的余额</span>
           </div>
         </div>
-        <div class="perContent">
+        <div class="profileContent">
           <div class="kuai">
             <span><b>0</b>个</span><br>
             <span>我的优惠</span>
           </div>
         </div>
-        <div class="perContent">
+        <div class="profileContent">
           <div class="kuai">
             <span><b>0</b>分</span><br>
             <span>我的积分</span>
@@ -36,38 +38,38 @@
         </div>
       </div>
       <ul>
-        <li class="personL">
-          <div class="personArr">
+        <li class="profileL">
+          <div class="profileArr">
             <i class="iconfont icon-you"></i>
           </div>
-          <div class="personD">
-           <i class="iconfont icon-icon-test" style="color: #20716a"></i>
+          <div class="profileD">
+           <i class="iconfont icon-icon-test" style="color: #ff6473"></i>
            <span>我的订单</span>
           </div>
         </li>
-        <li class="personL">
-          <div class="personArr">
+        <li class="profileL">
+          <div class="profileArr">
             <i class="iconfont icon-you"></i>
           </div>
-          <div class="personD">
+          <div class="profileD">
             <i class="iconfont icon-weibiaoti2fuzhi01" style="color: #43c0ac"></i>
             <span>积分商城</span>
           </div>
         </li>
-        <li class="personL">
-          <div class="personArr">
+        <li class="profileL">
+          <div class="profileArr">
             <i class="iconfont icon-you"></i>
           </div>
-          <div class="personD">
-            <i class="iconfont icon-huiyuan" style="color: #7acfdf"></i>
+          <div class="profileD">
+            <i class="iconfont icon-huiyuan" style="color: #00587a"></i>
             <span>外卖会员</span>
           </div>
         </li>
-        <li class="personL">
-          <div class="personArr">
+        <li class="profileL">
+          <div class="profileArr">
             <i class="iconfont icon-you"></i>
           </div>
-          <div class="personD">
+          <div class="profileD">
             <i class="iconfont icon-fuwu" style="color: #f8b500"></i>
             <span>服务中心</span>
           </div>
@@ -81,103 +83,105 @@ export default {
 }
 </script>
 <style>
-.order{
+.profile{
   overflow: hidden;
+  margin-bottom: 70px;
 }
-.orderTitle{
+.profileTitle{
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 45px;
+  height: 55px;
   font-size: 24px;
-  line-height: 45px;
+  line-height: 55px;
   text-align: center;
   color: #fff;
   background-color: #23a393;
 }
-.login{
-  height: 80px;
+.profileLogin{
+  height: 100px;
   padding: 15px 10px 15px 10px;
-  margin-top: 45px;
+  margin-top: 55px;
   background: #23a393;
   overflow: hidden;
 }
-.login .photo{
+.profileLogin .photo{
   float: left;
-  width: 70px;
+  width: 100px;
 }
-.login .photo>div{
-  width: 70px;
-  height: 70px;
+.profileLogin .photo>div{
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-color: #9ad;
 }
-.login .denglu{
-  height: 70px;
-  margin-left: 80px;
+.profileLogin .denglu{
+  height: 100px;
+  margin-left: 110px;
   margin-right: 40px;
+  padding-top: 15px;
 }
-.login .denglu>div{
+.profileLogin .denglu>div{
   height: 35px;
   line-height: 35px;
   font-size: 18px;
   color: #fff;
 }
-.login .arr{
+.profileLogin .arr{
   width: 40px;
-  height: 70px;
+  height: 100px;
   color: #fff;
-  line-height: 70px;
+  line-height: 100px;
   float: right;
   text-align: center;
 }
-.perInf{
+.profileInf{
   display: flex;
   height: 115px;
   line-height: 115px;
-  border-bottom: 1px solid #63686e;
+  border-bottom: 1px solid #bcbab8;
 }
-.perContent{
+.profileContent{
   flex: 1;
   text-align: center;
 }
-.perContent .kuai{
+.profileContent .kuai{
   display: inline-block;
   line-height: 28px;
   vertical-align: middle;
 }
-.perContent .kuai b{
+.profileContent .kuai b{
   font-size: 24px;
   color: red;
 }
-.perContent + .perContent{
-  border-left: 1px solid #63686e;
+.profileContent + .profileContent{
+  border-left: 1px solid #bcbab8;
 }
-.order .personL{
+.profile .profileL{
   height: 60px;
   line-height: 60px;
-  border-bottom: 1px solid #63686e;
+  border-bottom: 1px solid #bcbab8;
 }
-.personL .personD{
+.profileL .profileD{
   height: 100%;
   padding-left: 10px;
   margin-right: 30px;
 }
-.personL .personD span{
+.profileL .profileD span{
   font-size: 20px;
   margin-left: 4px;
 }
-.personD .iconfont{
+.profileD .iconfont{
   font-size: 22px;
 }
-.personL .personArr{
+.profileL .profileArr{
   float: right;
   height: 100%;
   width: 30px;
   text-align: center;
 }
-.personArr .iconfont{
+.profileArr .iconfont{
   font-size: 24px;
 }
 </style>
