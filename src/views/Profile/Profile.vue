@@ -1,9 +1,7 @@
 <template>
   <div class="profile">
-      <div class="profileTitle">
-        <span>我的</span>
-      </div>
-      <div class="profileLogin">
+      <headerTitle :title="'我的'"></headerTitle>
+      <div  class="profileLogin">
         <router-link to="/login">
           <div class="photo">
            <div></div>
@@ -78,110 +76,83 @@
   </div>
 </template>
 <script>
+import headerTitle from '../../components/Header/Header.vue'
 export default {
-  
+  components: {
+    headerTitle
+  }
 }
 </script>
-<style>
-.profile{
-  overflow: hidden;
-  margin-bottom: 70px;
-}
-.profileTitle{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 55px;
-  font-size: 24px;
-  line-height: 55px;
-  text-align: center;
-  color: #fff;
-  background-color: #23a393;
-}
-.profileLogin{
-  height: 100px;
-  padding: 15px 10px 15px 10px;
-  margin-top: 55px;
-  background: #23a393;
-  overflow: hidden;
-}
-.profileLogin .photo{
-  float: left;
-  width: 100px;
-}
-.profileLogin .photo>div{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #9ad;
-}
-.profileLogin .denglu{
-  height: 100px;
-  margin-left: 110px;
-  margin-right: 40px;
-  padding-top: 15px;
-}
-.profileLogin .denglu>div{
-  height: 35px;
-  line-height: 35px;
-  font-size: 18px;
-  color: #fff;
-}
-.profileLogin .arr{
-  width: 40px;
-  height: 100px;
-  color: #fff;
-  line-height: 100px;
-  float: right;
-  text-align: center;
-}
-.profileInf{
-  display: flex;
-  height: 115px;
-  line-height: 115px;
-  border-bottom: 1px solid #bcbab8;
-}
-.profileContent{
-  flex: 1;
-  text-align: center;
-}
-.profileContent .kuai{
-  display: inline-block;
-  line-height: 28px;
-  vertical-align: middle;
-}
-.profileContent .kuai b{
-  font-size: 24px;
-  color: red;
-}
-.profileContent + .profileContent{
-  border-left: 1px solid #bcbab8;
-}
-.profile .profileL{
-  height: 60px;
-  line-height: 60px;
-  border-bottom: 1px solid #bcbab8;
-}
-.profileL .profileD{
-  height: 100%;
-  padding-left: 10px;
-  margin-right: 30px;
-}
-.profileL .profileD span{
-  font-size: 20px;
-  margin-left: 4px;
-}
-.profileD .iconfont{
-  font-size: 22px;
-}
-.profileL .profileArr{
-  float: right;
-  height: 100%;
-  width: 30px;
-  text-align: center;
-}
-.profileArr .iconfont{
-  font-size: 24px;
-}
+<style lang='stylus'>
+.profile
+  overflow: hidden
+  margin-bottom: 70px
+  .profileLogin
+    height: 100px
+    padding: 15px 10px 15px 10px
+    margin-top: 55px
+    background: #23a393
+    overflow: hidden
+    .photo
+      float: left
+      width: 100px
+    .photo>div
+      width: 100px
+      height: 100px
+      border-radius: 50%
+      background-color: #9ad
+    .denglu
+      height: 100px
+      margin-left: 110px
+      margin-right: 40px
+      padding-top: 15px
+    .denglu>div
+      height: 35px
+      line-height: 35px
+      font-size: 18px
+      color: #fff
+    .arr
+      width: 40px
+      height: 100px
+      color: #fff
+      line-height: 100px
+      float: right
+      text-align: center
+  .profileInf
+    display: flex
+    height: 115px
+    line-height: 115px
+    border-bottom: 1px solid #bcbab8
+    .profileContent
+      flex: 1
+      text-align: center
+      .kuai
+        display: inline-block
+        line-height: 28px
+        vertical-align: middle
+        b
+          font-size: 24px
+          color: red
+      + .profileContent
+        border-left: 1px solid #bcbab8
+  .profileL
+    height: 60px
+    line-height: 60px
+    border-bottom: 1px solid #bcbab8
+    .profileD
+      height: 100%
+      padding-left: 10px
+      margin-right: 30px
+      span
+        font-size: 20px
+        margin-left: 4px
+      .iconfont
+        font-size: 22px
+    .profileArr
+      float: right
+      height: 100%
+      width: 30px
+      text-align: center
+      .iconfont
+        font-size: 24px
 </style>

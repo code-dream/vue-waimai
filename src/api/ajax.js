@@ -6,7 +6,7 @@ export default function ajax (url, data={}, type='GET') {
       // 拼接get请求的路径的地址
       let dataStr = ''
       Object.keys(data).forEach(key => {
-        dataStr += key + data[key] + '&'
+        dataStr += key + '=' + data[key] + '&'
       })
       if (dataStr !== '') {
         dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
@@ -19,7 +19,7 @@ export default function ajax (url, data={}, type='GET') {
       // 如果是post请求的话，发送请求并将axios返回的promise对象保存在promiseObj中
       promiseObj = axios.post(url, data)
     }
-    成功/失败后回调函数
+    // 成功/失败后回调函数
     promiseObj.then(responseText => {
       resolve(responseText.data)
     }).catch(erro => {

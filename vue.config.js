@@ -6,6 +6,16 @@ module.exports = {
   filenameHashing: true,
   lintOnSave: true, // 若为false则代码不符合elint的规则会编译失败
   devServer: {
-      open: true
+      open: true,
+      port: 8081,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:4000',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/api': ''
+          }
+        }
+      }
   }
 }

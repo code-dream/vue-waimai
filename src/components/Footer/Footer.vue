@@ -28,11 +28,10 @@
 </template>
 <script>
 export default {
-  
 }
 </script>
-<style>
-.footer{
+<style lang='stylus'>
+.footer
   position: fixed;
   bottom: 0;
   left: 0;
@@ -40,20 +39,19 @@ export default {
   display: flex;
   height: 70px;
   border-top: 1px solid #ebebe3;
-  background: #fff;
-}
-.footContent{
-  flex: 1;
-  text-align: center;
-  padding-top: 8px;
-}
-.footContent a{
-  display: block;
-  height: 100%;
-  line-height: 24px;
-  color: #63686e;
-}
-a.router-link-active{
-  color: #45b7b7;
-}
+  background: #fff
+  .footContent
+    flex: 1;
+    text-align: center;
+    padding-top: 8px;
+    a
+      display: block;
+      height: 100%;
+      line-height: 24px;
+      color: #63686e;
+      // 以下设置当前选定的路由的样式
+      &.router-link-active
+        color: #45b7b7;
+      .iconfont
+        font-size: 30px
 </style>
