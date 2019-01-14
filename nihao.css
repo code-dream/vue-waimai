@@ -1,0 +1,30 @@
+resume,title,info{
+	display: block;
+	text-align: center;
+}
+resume{
+	width: 400px;
+	height: 500px;
+	border: 1px solid;
+	margin: 20px auto;
+}
+title{
+	font-family: '微软雅黑';
+	font-size: 32px;
+	color: #adc;
+}
+label{
+	font-size: 18px;
+}
+info{
+	margin-top: 10px;
+}
+name,age,place{
+	text-decoration: underline;
+	color: #a4afa7;
+}
+experience,decoration{
+	display: block;
+	text-align: left;
+	line-height: 30px;
+}
