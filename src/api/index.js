@@ -2,8 +2,6 @@
 包含n个接口请求函数的模块
  */
 
-
-
 import ajax from './ajax.js'
 const BASE_URL = '/api'
 
@@ -14,7 +12,7 @@ export const reqAddress = (geohash) => ajax(`${BASE_URL}/position/${geohash}`)
 export const reqSwiperInf = () => ajax(BASE_URL+'/index_category')
 
 // 3、根据经纬度获取商铺列表
-export const reqShopInf = (latitude, longitude) => ajax(BASE_URL+'/shops', {latitude, longitude})
+export const reqShopList = (latitude, longitude) => ajax(BASE_URL+'/shops', {latitude, longitude})
 
 // 4、根据经纬度和关键字搜索商铺列表
 export const reqSearchShop = (geohash, keyword) => ajax(BASE_URL + '/search_shops', {geohash, keyword})
@@ -33,3 +31,9 @@ export const reqUserInf = () => ajax(BASE_URL + '/userinfo')
 
 // 10、用户登出
 export const reqLoginout = () => ajax(BASE_URL + '/logout')
+
+export const reqShopFood = () => ajax('/foods')
+
+export const reqShopEvaluate = () => ajax('/evaluate')
+
+export const reqShopInfo = () => ajax('/info')

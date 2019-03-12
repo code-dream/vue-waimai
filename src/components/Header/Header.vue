@@ -13,12 +13,7 @@ export default {
 }
 </script>
 <style lang='stylus'>
-.headTitle
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  z-index: 11
+.headTitle 
   height: 55px
   line-height: 55px
   text-align: center

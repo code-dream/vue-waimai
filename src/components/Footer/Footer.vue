@@ -32,6 +32,7 @@ export default {
 </script>
 <style lang='stylus'>
 .footer
+  width: 411px
   position: fixed;
   bottom: 0;
   left: 0;
@@ -39,11 +40,11 @@ export default {
   display: flex;
   height: 70px;
   border-top: 1px solid #ebebe3;
-  background: #fff
+  background-color: #fff
   .footContent
     flex: 1;
     text-align: center;
-    padding-top: 8px;
+    align-self: center
     a
       display: block;
       height: 100%;

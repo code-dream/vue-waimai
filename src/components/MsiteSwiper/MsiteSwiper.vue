@@ -59,8 +59,8 @@ export default {
 <style lang='stylus'>
 .lunbo
   border-bottom: 1px solid #e4e4e4
-  margin-top: 55px
   margin-bottom: 14px
+  padding-top: 55px
   .mainWrap
     display: flex
     flex-wrap: wrap

@@ -1,7 +1,7 @@
 import axios from 'axios'
 export default function ajax (url, data={}, type='GET') {
  return new Promise(function(resolve, reject) {
-    let promiseObj
+    let p
     if (type === 'GET') {
       // 拼接get请求的路径的地址
       let dataStr = ''
@@ -13,14 +13,14 @@ export default function ajax (url, data={}, type='GET') {
         url = url + '?' + dataStr
       }
       // 如果是get请求的话，发送请求并将axios返回的promise对象保存在promiseObj中
-      promiseObj = axios.get(url)
+      p = axios.get(url)
     }
     else {
       // 如果是post请求的话，发送请求并将axios返回的promise对象保存在promiseObj中
-      promiseObj = axios.post(url, data)
+      p = axios.post(url, data)
     }
     // 成功/失败后回调函数
-    promiseObj.then(responseText => {
+    p.then(responseText => {
       resolve(responseText.data)
     }).catch(erro => {
       reject(erro)

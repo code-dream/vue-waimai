@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {reqAddress, reqSwiperInf, reqShopInf} from './api'
+import { reqAddress, reqSwiperInf, reqShopList, reqUserInf, reqLoginout, reqShopInfo} from './api'
 
 Vue.use(Vuex)
 
@@ -10,7 +10,9 @@ export default new Vuex.Store({
     longitude: 116.36867,
     address: {},
     swiperInf: [],
-    shopInf: [],
+    shopList: [],
+    userInf: {},
+    shopInfo: {}
   },
   mutations: {
     RECEIVE_ADDRESS(state, {address}) {
@@ -19,8 +21,14 @@ export default new Vuex.Store({
     RECEIVE_SWIPERINF(state, { swiperInf }) {
       state.swiperInf = swiperInf
     },
-    RECEIVE_SHOPINF(state, { shopInf }) {
-      state.shopInf = shopInf
+    RECEIVE_SHOPLIST(state, { shopList }) {
+      state.shopList = shopList
+    },
+    SAVEUSERINF(state, {userInf}) {
+      state.userInf = userInf
+    },
+    REQSHOPINF(state, {info}) {
+      state.shopInfo = info
     }
   },
   actions: {
@@ -42,14 +50,38 @@ export default new Vuex.Store({
       }
     },
     // 异步获取商家信息
-    async getShopInf({ commit, state }) {
+    async getShopList({ commit, state }) {
       const {latitude, longitude} = state
-      const result = await reqShopInf(latitude, longitude)
+      const result = await reqShopList(latitude, longitude)
       if(result.code === 0) {
-        const shopInf = result.data
-        commit('RECEIVE_SHOPINF', { shopInf })
+        const shopList = result.data
+        commit('RECEIVE_SHOPLIST', { shopList })
       }
     },
+    // 异步获取session中保存的userID以获取用户相关信息
+    async getUserInf({commit}) {
+      const result = await reqUserInf()
+      if(result.code === 0) {
+        const userInf = result.data
+        commit('SAVEUSERINF', {userInf})
+      }
+    },
+    // 退出登入
+    async reqLoginout({commit}) {
+      const result = await reqLoginout()
+      if(result.code === 0) {
+        const userInf = {}
+        commit('SAVEUSERINF', {userInf})
+      }
+    },
+    // 获取具体商家的信息
+    async reqShopInf({commit}) {
+      const result = await reqShopInfo()
+      if(result.code === 0) {
+        const info = result.data
+        commit('REQSHOPINF', {info})
+      }
+    }
   },
   getters: {
 

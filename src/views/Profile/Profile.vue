@@ -2,16 +2,17 @@
   <div class="profile">
       <headerTitle :title="'我的'"></headerTitle>
       <div  class="profileLogin">
-        <router-link to="/login">
+        <router-link :to="userInf._id?'/user':'/login'">
           <div class="photo">
-           <div></div>
+           <img src='./image/touxiang.jpg' alt="头像" v-if="userInf._id">
+           <img src="./image/none.jpg" alt="未登入" v-if="!userInf._id">
           </div>
           <div class="arr">
             <i class="iconfont icon-you"></i>
           </div>
           <div class="denglu">
-            <div>登录/注册</div>
-            <div>暂无绑定手机号</div>
+            <div v-if="!userInf.phone">{{userInf.name || '登录/注册'}}</div>
+            <div>{{userInf.phone || '暂无绑定手机号'}}</div>
           </div>
         </router-link>
       </div>
@@ -73,6 +74,9 @@
           </div>
         </li>
       </ul>
+      <div class="loginout" v-if="userInf._id">
+        <button @click="loginOut">退出登入</button>
+      </div>
   </div>
 </template>
 <script>
@@ -80,27 +84,35 @@ import headerTitle from '../../components/Header/Header.vue'
 export default {
   components: {
     headerTitle
+  },
+  computed: {
+    userInf() {
+      return this.$store.state.userInf
+    }
+  },
+  methods: {
+    loginOut() {
+      this.$store.dispatch('reqLoginout')
+    }
   }
 }
 </script>
 <style lang='stylus'>
 .profile
-  overflow: hidden
+  width: 100%
   margin-bottom: 70px
   .profileLogin
     height: 100px
     padding: 15px 10px 15px 10px
-    margin-top: 55px
     background: #23a393
     overflow: hidden
     .photo
       float: left
       width: 100px
-    .photo>div
-      width: 100px
-      height: 100px
-      border-radius: 50%
-      background-color: #9ad
+      img
+        width: 100px
+        height: 100px
+        border-radius: 50%
     .denglu
       height: 100px
       margin-left: 110px
@@ -155,4 +167,16 @@ export default {
       text-align: center
       .iconfont
         font-size: 24px
+  .loginout
+    width: 90%
+    margin: 10px auto 
+    text-align: center
+    button
+      width: 100%
+      line-height: 40px
+      font-size: 20px
+      color: #fff
+      background-color red 
+      border-radius: 6px
+      outline: none
 </style>

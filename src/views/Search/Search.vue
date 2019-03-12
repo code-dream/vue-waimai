@@ -1,11 +1,11 @@
 <template>
-   <div class="search">
+  <div class="search">
     <headerTitle :title="'搜索'"></headerTitle>
-      <div class="searchContent">
-        <input type="text" placeholder="请输入商家或美食名称">
-        <button>提交</button>
-      </div>
-   </div>
+    <div class="searchContent">
+      <input type="text" placeholder="请输入商家或美食名称">
+      <button>提交</button>
+    </div>
+  </div>
 </template>
 <script>
 import headerTitle from '../../components/Header/Header.vue'
@@ -17,10 +17,11 @@ export default {
 </script>
 <style lang='stylus'>
 .search
+  width:100%;
   overflow: hidden;
   .searchContent
     text-align: center;
-    margin-top: 75px;
+    margin-top: 10px;
     input
       width: 70%;
       height: 35px;

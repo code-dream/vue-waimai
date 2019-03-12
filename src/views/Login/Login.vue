@@ -43,7 +43,7 @@
           <i class="iconfont icon-yanzhengma"></i>
           <input type="text" placeholder="验证码" v-model="captcha">
           <!-- 验证码图片 -->
-          <img src="http://localhost:4000/captcha" alt="不支持svg" @click="reqCapcha">
+          <img src="http://localhost:4000/captcha"  ref='imgUrl' alt="不支持svg" @click="reqCapcha">
         </div>
       </div>
       <!-- 温馨提示 -->
@@ -60,15 +60,16 @@
       </div>
     </div>
     <!-- 提示界面 -->
-    <div class="alertTip" v-show="alertShow">
+    <div class="alertTip" v-show="alertText">
       <div class="alertContent">
         <div class="alertText">{{alertText}}</div>
-        <button @click="alertShow = false">确定</button>
+        <button @click="alertText = ''">确定</button>
       </div>
     </div>
   </div>
 </template>
 <script>
+import {reqPwdLogin, reqSendCode, reqSmsLogin} from '../../api/index.js'
 export default {
   data () {
     return {
@@ -80,7 +81,6 @@ export default {
       name: '', // 输入的用户名
       pwd: '', // 输入的密码
       captcha: '', // 图形验证码
-      alertShow: false, // 是否显示警告提示窗口
       alertText: '', // 警告内容
     }
   },
@@ -93,54 +93,70 @@ export default {
     }
   },
   methods: {
-    handle() {
+    async handle() {
       // 开始计时
       if(!this.countDown) {
         this.countDown = 30;
-        const intervalId = setInterval(() => {
+        this.intervalId = setInterval(() => {
           this.countDown--
           if(this.countDown <= 0) {
-            clearInterval(intervalId)
+            clearInterval(this.intervalId)
           }
         }, 1000)
       }
       // 发送ajax请求
+      const result = await reqSendCode(this.phone)
+      if(result.code === 1) {
+        this.alertText = result.msg
+        this.countDown = 0
+        clearInterval(this.intervalId)
+      }
     },
-    handleSub() {
-      const {isRightPhone,code, name, pwd, captcha} = this
+    async handleSub() {
+      const {isRightPhone, phone,code, name, pwd, captcha} = this
+      let result
       if(this.booWay) {
         if(!isRightPhone) {
-          this.alertShow = true
           this.alertText = '手机号不正确' 
           return
         } else if(!/^\d{6}$/.test(code)) {
-          this.alertShow = true
           this.alertText = '验证码不正确'
           return
         } else {
           // 输入数据都正确开始向后台传数据
+          result = await reqSmsLogin(phone, code)
         }
       } else {
         if(!name) {
-          this.alertShow = true
           this.alertText = '手机号不正确' 
           return
         } else if(!/^\d{6}$/.test(pwd)) {
-          this.alertShow = true
           this.alertText = '输入密码不正确'
           return
         } else if(!captcha) {
-          this.alertShow = true
           this.alertText = '验证码不正确'
           return
         } else {
            // 输入数据都正确开始向后台传数据
+           result = await reqPwdLogin(name, pwd, captcha)
         }
       }
+      if(result.code === 1) {
+        this.alertText = result.msg
+        this.countDown = 0
+        clearInterval(this.intervalId)
+        this.reqCapcha()
+      } else if(result.code === 0) {
+        const userInf = result.data
+        // 将用户登录信息保存到state当中
+        this.$store.commit('SAVEUSERINF', {userInf})
+        // 跳转到个人个人资料页面
+        this.$router.replace('/profile')
+      }
     },
-    reqCapcha(event) {
+    reqCapcha() {
       // 刷新图片验证码
-      event.target.src = 'http://localhost:4000/captcha?time=' + Date.now()
+      this.$refs.imgUrl.src = 'http://localhost:4000/captcha?time=' + Date.now()
     }
   }
 }

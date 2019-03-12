@@ -4,8 +4,8 @@
       <span class="sangang"></span>
       <span>附近商家</span>
     </p>
-    <ul v-if="shopInf.length">
-      <li class="shop" v-for="(shop, index) in shopInf" :key="index">
+    <ul v-if="shopList.length">
+      <li class="shop" v-for="(shop, index) in shopList" :key="index" @click='$router.push("/shop")'>
         <div class="shopPic"></div>
         <div class="shopDetail">
           <div class="shopName">
@@ -40,8 +40,8 @@
 import Star from '../Star/Star.vue'
 export default {
   computed: {
-    shopInf () {
-      return this.$store.state.shopInf
+    shopList () {
+      return this.$store.state.shopList
     }
   },
   components: {
@@ -51,7 +51,6 @@ export default {
 </script>
 <style lang='stylus'>
 .shopList
-  margin-bottom: 70px
   .tip
     height: 40px
     line-height: 40px
@@ -73,48 +72,49 @@ export default {
     .shopPic
       float: left
       width: 80px
-      height: 100%
+      height: 95%
       background: url('./image/waimai.jpg') no-repeat center center
       background-size: cover
+      border-radius: 8px
     .shopDetail
-      height: 100%
-      margin-left: 90px
-      .shopName
-        height: 30px
-        line-height: 30px
-        font-size: 17px
-        font-weight: bold
-        .name
-          display: inline-block
-          width: 76%
-          overflow: hidden
-          text-overflow: ellipsis 
-          white-space: nowrap
-          .pp
-            background-color: #facd49
-            margin-right: 5px
-        .shopNameR
-          float: right
-          width: 24%
-          text-align: right
-          .shop-support
+        height: 100%
+        margin-left: 90px
+        .shopName
+          height: 30px
+          line-height: 30px
+          font-size: 17px
+          font-weight: bold
+          .name
             display: inline-block
-            border: 1px solid #919190
-            color: #919190
-            font-size: 12px
-            line-height: 16px
-            padding: 2px 4px
-      .xiaoliang
-        height: 39px
-        line-height: 39px
-        font-size: 15px
-        span
-          margin-right: 5px
-        .starR
-          float: right
-          color: #40a798
-      .qisong
-        height: 26px
-        line-height: 26px
-        font-size: 16px
+            width: 76%
+            overflow: hidden
+            text-overflow: ellipsis 
+            white-space: nowrap
+            .pp
+              background-color: #facd49
+              margin-right: 5px
+          .shopNameR
+            float: right
+            width: 24%
+            text-align: right
+            .shop-support
+              display: inline-block
+              border: 1px solid #919190
+              color: #919190
+              font-size: 12px
+              line-height: 16px
+              padding: 2px 4px
+        .xiaoliang
+          height: 39px
+          line-height: 39px
+          font-size: 15px
+          span
+            margin-right: 5px
+          .starR
+            float: right
+            color: #40a798
+        .qisong
+          height: 26px
+          line-height: 26px
+          font-size: 16px
 </style>
