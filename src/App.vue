@@ -43,13 +43,14 @@ export default {
 
 <style>
 @import './assets/css/reset.css';
-@import '//at.alicdn.com/t/font_964158_t4q6opp38h.css';
+@import '//at.alicdn.com/t/font_964158_z01jv441nn.css';
 html,body,#app{
   height: 100%;
   overflow-x: hidden;
+  font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
 }
 .left-enter-active,.left-leave-active, .toright-enter-active, .toright-leave-active{
-  transition: all .4s ease;
+  transition: all .3s ease;
 }
 .left-enter{
   transform: translateX(100%);
@@ -70,7 +71,7 @@ html,body,#app{
 }
 
 .down-enter-active,.down-leave-active{
-  transition: all .4s ease;
+  transition: all .3s ease;
 }
 .down-enter,.down-leave-to{
   transform: translateY(70px)

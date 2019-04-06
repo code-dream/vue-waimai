@@ -72,11 +72,17 @@ export default new Router({
         },
         {
           path: '/shop/evaluate',
-          component: ShopEvaluate
+          component: ShopEvaluate,
+          meta: {
+            index: 9
+          }
         },
         {
           path: '/shop/info',
-          component: ShopInfo
+          component: ShopInfo,
+          meta: {
+            index: 10
+          }
         },
         {
           path: '/',

@@ -49,6 +49,7 @@ export default {
         font-size: 30px  
         vertical-align: top
     .myTitle
+      position: relative
       text-align: center
       .shopImg
         display: inline-block

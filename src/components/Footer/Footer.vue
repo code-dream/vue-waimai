@@ -32,7 +32,7 @@ export default {
 </script>
 <style lang='stylus'>
 .footer
-  width: 411px
+  width: 100%
   position: fixed;
   bottom: 0;
   left: 0;

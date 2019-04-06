@@ -8,17 +8,22 @@
         </div>
         <div class="price">￥{{food.price}}</div>
         <div class="cartAdd">
-          <Cart/>
+          <CartControl :food='food' @updateCart="handle"/>
         </div>
      </div>
    </div>
 </template>
 <script>
-import Cart from '../cartControl/cartControl.vue'
+import CartControl from '../cartControl/cartControl.vue'
 export default {
   props: ['food'],
   components: {
-    Cart
+    CartControl
+  },
+  methods: {
+    handle({isAdd, food}) {
+      this.$emit('updateCart', {isAdd, food})
+    } 
   }
 }
 </script>
@@ -43,7 +48,7 @@ export default {
     border-radius: 12px 12px 0 0;
   }
   .sm{
-    padding: 15px;
+    padding: 3%;
     line-height: 20px;
   }
   .sm span:first-child{
@@ -57,12 +62,12 @@ export default {
   .price{
     font-size: 18px;
     font-weight: bold;
-    padding-left: 15px;
+    padding-left: 3%;
     color: red;
   }
   .cartAdd{
     position: absolute;
     bottom: 20px;
-    right: 25px;
+    right: 10px;
   }
 </style>

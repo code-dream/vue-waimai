@@ -18,6 +18,7 @@
   </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 import HeaderTitle from '../../components/Header/Header.vue'
 import MsiteSwiper from '../../components/MsiteSwiper/MsiteSwiper.vue'
 import ShopList from '../../components/ShopList/ShopList.vue'
@@ -25,9 +26,12 @@ import Bscroll from 'better-scroll'
 export default {
   name: "index",
   mounted() {
-    new Bscroll('.list', {
-      click: true,
-      bounce: false
+    this.$nextTick(() => {
+      new Bscroll('.list', {
+        click: true,
+        bounce: false,
+        swiperTime: 1500
+      })
     })
   },
   components: {
@@ -36,12 +40,7 @@ export default {
     ShopList
   },
   computed: {
-    address () {
-      return this.$store.state.address
-    },
-    userInf () {
-      return this.$store.state.userInf
-    }
+    ...mapState(['address', 'userInf'])
   }
 }
 </script>
@@ -49,8 +48,8 @@ export default {
 .main
   width: 100%
   height: 100%
-  overflow: hidden
   .list
+    overflow: hidden
     height: 100%
     .content
       padding-bottom: 70px

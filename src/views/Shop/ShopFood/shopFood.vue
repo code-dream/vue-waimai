@@ -26,7 +26,7 @@
                 <div>
                   <span class="pricea">￥{{food.price}}</span>
                   <div class="carAdd">
-                    <CartControl/>
+                    <CartControl :food='food' @updateCart="updateCart"/>
                   </div>
                 </div>      
               </div>
@@ -37,10 +37,10 @@
     </div>
     <!-- 以下为食物详情弹出图 -->
     <transition name="hello">
-      <Food v-if="isShow" :food="food" @closeTip="isShow = false"/>
+      <Food v-if="isShow" :food="food" @closeTip="isShow = false" @updateCart="updateCart"/>
     </transition>
     <!-- 以下是购物车元素 -->
-    <Cart/>
+    <Cart :cartFood="cartFood" @updateCart="updateCart"/>
   </div>
 </template>
 <script>
@@ -51,14 +51,16 @@ import CartControl from '../../../components/cartControl/cartControl.vue'
 import Food from '../../../components/Food/food.vue'
 import Cart from '../../../components/Cart/cart.vue'
 export default {
+  name: 'shopFood',
   data() {
     return {
       foods: [],
-      food: {},
-      offsets: [],
-      scrollY: 0,
-      rScroll: null,
-      isShow: false
+      food: {}, 
+      offsets: [], // 收集右边各菜单类的垂直高度
+      scrollY: 0, // 右侧滑动组件的scrollTop值
+      rScroll: null, // better-scroll对象
+      isShow: false, // 控制食物弹出图显示/隐藏
+      cartFood: [] // 购物车选中的商品列表
     }
   },
   async mounted() {
@@ -81,11 +83,16 @@ export default {
   methods: {
     initScroll() {
       new BScroll('.wrapone', {
-        click: true
+        click: true,
+        bounce: false
+
       })
       this.rScroll = new BScroll('.wraptwo', {
         probeType: 2,
-        click: true
+        click: true,
+        bounce: false,
+        momuntum: true,
+        swiperTime: 1800
       })
       // 取到右边滚动距离顶部的高度
       this.rScroll.on('scroll', ({x, y}) => {
@@ -116,6 +123,14 @@ export default {
     showFood(food) {
       this.food = food
       this.isShow = true
+    },
+    updateCart({isAdd, food}) {
+      if(isAdd) {
+        this.cartFood.push(food)
+      } else{
+        let index = this.cartFood.indexOf(food)
+        this.cartFood.splice(index, 1)
+      }
     }
   },
   components: {
@@ -127,7 +142,8 @@ export default {
 </script>
 <style lang='stylus'>
 .foodScroll
-  height: calc(100% - 214px)
+  height: calc(100% - 212px)
+  overflow: hidden
   .wrapone
     float: left
     background-color: rgb(244,244,248)
@@ -193,11 +209,11 @@ export default {
               .carAdd
                 position: absolute 
                 top: 78px
-                right: 20px
+                right: 0px
             &:last-child
               border: 0px
   .hello-enter-active,.hello-leave-active
-    transition: opacity .4s
+    transition: opacity .3s
   .hello-enter, .hello-leave-to
     opacity: 0
 </style>

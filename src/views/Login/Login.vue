@@ -22,7 +22,7 @@
           </button>
           <br>
           <i class="iconfont icon-yanzhengma"></i>
-          <input type="text" placeholder="验证码" v-model="code">
+          <input type="text" placeholder="验证码" v-model="code" @keyup.enter='handleSub'>
         </div>
         <!-- 密码登录 -->
         <div class="loginInput mima" v-show="!booWay">
@@ -41,7 +41,7 @@
           </div>
           <br>
           <i class="iconfont icon-yanzhengma"></i>
-          <input type="text" placeholder="验证码" v-model="captcha">
+          <input type="text" placeholder="验证码" v-model="captcha" @keyup.enter='handleSub'>
           <!-- 验证码图片 -->
           <img src="http://localhost:4000/captcha"  ref='imgUrl' alt="不支持svg" @click="reqCapcha">
         </div>
@@ -149,7 +149,7 @@ export default {
       } else if(result.code === 0) {
         const userInf = result.data
         // 将用户登录信息保存到state当中
-        this.$store.commit('SAVEUSERINF', {userInf})
+        this.$store.commit('saveuserinf', {userInf})
         // 跳转到个人个人资料页面
         this.$router.replace('/profile')
       }

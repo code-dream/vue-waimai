@@ -1,10 +1,14 @@
 <template>
-  <div class="cartContain" @click.stop>
+  <div class="cartContain" :class="{reduceS: size}" @click.stop>
     <transition name="change">
-      <div class="reduce" ref="reduce"  @click="reduce" v-if="count"><i class="iconfont icon-Group-"></i></div>
+      <div class="reduce"  ref="reduce"  @click="reduce" v-if="food.count">
+        <i class="iconfont icon-Group-"></i>
+      </div>
     </transition>
     <transition name="fade">
-      <div class="count" ref="count" v-if="count">{{count}}</div>
+      <div class="count" v-if="food.count">
+        {{food.count}}
+      </div>
     </transition>
     <div class="add" @click="add">
       <i class="iconfont icon-tianjia"></i>
@@ -12,30 +16,40 @@
   </div>
 </template>
 <script>
+import Vue from 'vue'
 export default {
-  data() {
-    return {
-      count: 0
-    }
-  },
+  props: ['food', 'size'],
   methods: {
     add() {
-      this.count++
+      let {food} = this
+      if(this.food.count) {
+        this.food.count++
+      } else{
+        // 因为给数组新增的数据没有被vue添加到事件监听当中去
+        Vue.set(this.food, 'count', 1)
+        this.$emit('updateCart', {isAdd: true, food})
+      }
     },
     reduce() {
-      if(--this.count <= 0) {
-        this.count = 0
+      let {food} = this
+      if(this.food.count) {
+        this.food.count--
+        if(this.food.count === 0)
+        this.$emit('updateCart',{isAdd: false, food})
       }
     }
   }
 }
 </script>
 <style>
+.cartContain{
+  padding: 0 20px;
+}
 .reduce,.count,.add{
   display: inline-block;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
   box-sizing: border-box;
   text-align: center;
   font-size: 22px;
@@ -55,7 +69,16 @@ export default {
   border: 1px solid #23a393;
 }
 .cartContain i{
-  font-size: 26px;
+  font-size: 24px;
+}
+.reduceS .reduce, .reduceS .add, .reduceS .count{
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 20px;
+}
+.reduceS i{
+  font-size: 20px;
 }
 
 /* 以下购物车空间按钮的动画效果 */
@@ -67,10 +90,10 @@ export default {
   transform: translateX(60px) rotate(-180deg);
 }
 .fade-enter-active, .fade-leave-active{
-  transition: transform .4s;
+  transition: transform .2s;
 }
 .fade-enter, .fade-leave-to{
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateX(28px);
 }
 </style>
