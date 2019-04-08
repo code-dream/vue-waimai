@@ -3,7 +3,7 @@
     <slot name="topLeft"></slot>
     <slot name="topRight"></slot>
     <div class="mainTitle">
-      <span>{{title}}</span>
+      {{title}}
     </div>
   </div>
 </template>
@@ -14,28 +14,22 @@ export default {
 </script>
 <style lang='stylus'>
 .headTitle 
-  height: 55px
-  line-height: 55px
+  width: 100%
+  height: 48px
+  line-height: 48px
   text-align: center
   color: #fff
   background-color: #23a393
   overflow: hidden
   .leftTitle
     float: left
-    width: 40px
-    .iconfont
-      font-size: 36px
-      vertical-align: middle
   .rightTitle
     float: right
-    width: 80px
+    padding-right: 8px
   .mainTitle
-    font-size: 24px
-    span
-      display: inline-block
-      width: 55%
-      overflow: hidden
-      text-overflow: ellipsis
-      white-space: nowrap
-      vertical-align: top
+    font-size: 20px
+    text-align: center
+    overflow: hidden
+    text-overflow: ellipsis 
+    white-space: nowrap
 </style>

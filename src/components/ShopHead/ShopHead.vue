@@ -42,8 +42,8 @@ export default {
 <style lang='stylus'>
   .ShopHead
     .nav
-      height: 55px
-      line-height: 55px
+      height: 48px
+      line-height: 48px
       .iconfont
         color: #ffffff
         font-size: 30px  
@@ -62,24 +62,26 @@ export default {
           height: 64px
           box-shadow: 0px -1px 6px
       .content
-        height: 95px
         padding-top: 20px
+        font-size: 14px
         .fLine
-          height: 45px
-          line-height: 45px
+          padding: 8px
           .pingpai
-            line-height: 20px
-            font-size: 18px
-            padding: 0 5px 
-            background-color yellow
-            margin-right: 10px
+            display: inline-block
+            padding: 3px
+            border-radius: 2px
+            font-size: 14px
+            margin-right: 5px 
+            background-color: #facd49
           .name
-            font-size: 22px
+            font-size: 16px
             font-weight: bold
         .sLine
-          line-height: 25px
+          padding: 5px 0
+          color: #7d7d7d
           span 
             margin-right: 10px
         .tLine
-          line-height: 25px
+          color: #7d7d7d
+          padding-bottom: 5px
 </style>

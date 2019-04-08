@@ -44,22 +44,21 @@ export default {
     margin: auto auto
     text-align: center
     span
-      font-size: 22px
+      font-size: 18px
       line-height: 40px
       color: #bcbab8
     button
       width: 50% 
-      height: 50px
-      line-height: 50px
-      font-size: 20px
+      font-size: 18px
       color: #fff
       background-color: #57a99a
       border: 1px solid #57a99a
       border-radius: 4px
+      padding: 5px
   .logsuc
     position: absolute 
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    font-size: 24px
+    font-size: 18px
 </style>

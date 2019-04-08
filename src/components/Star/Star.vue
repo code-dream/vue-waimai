@@ -36,7 +36,7 @@ export default {
 .star
   display: inline-block
   width: 80px
-  vertical-align: top
+  vertical-align: bottom
   &.star-24
     .starLi
       display: inline-block

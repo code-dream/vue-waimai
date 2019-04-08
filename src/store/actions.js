@@ -6,7 +6,8 @@ import {
   reqLoginout,
   reqShopInfo,
   reqShopEvaluate,
-  reqSearchShop
+  reqSearchShop,
+  updateUserInf
 } from '../api'
 import {
   RECEIVE_ADDRESS,
@@ -17,7 +18,6 @@ import {
   REQSHOPEVALUATE,
   REQSEARCHSHOP
 } from './mutation.types.js'
-
 export default {
   // 异步获取地址
   async getAddress({ commit, state }) {
@@ -85,6 +85,14 @@ export default {
     if(result.code === 0){
       const data = result.data
       commit(REQSEARCHSHOP, {data})
+    }
+  },
+  // 更新用户的信息
+  async updateUserInf({commit}, {a, data}) {
+    let result = await updateUserInf(a, data)
+    if(result.code === 0) {
+      const userInf = result.data
+      commit(SAVEUSERINF, {userInf})
     }
   }
 }

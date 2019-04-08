@@ -10,6 +10,8 @@ import ShopFood from './views/Shop/ShopFood/shopFood.vue'
 import ShopEvaluate from './views/Shop/ShopEvaluate/shopEvaluate.vue'
 import ShopInfo from './views/Shop/ShopInfo/shopInfo.vue'
 import UserDetail from './views/UserDetail/userDetail.vue'
+import UserInf from './views/UserDetail/userInf.vue'
+import UserEdit from './views/UserDetail/userEdit.vue'
 
 Vue.use(Router)
 
@@ -93,9 +95,24 @@ export default new Router({
     {
       path: '/user',
       component: UserDetail,
-      meta: {
-        index: 7
-      }
+      children: [
+        {
+          path: '/user/userInf',
+          component: UserInf,
+          meta: {
+            index: 7
+          },
+        },
+        {
+          path: '/user/userEdit/:propery',
+          component: UserEdit,
+          props: true
+        },
+        {
+          path: '/',
+          redirect: '/user/userInf'
+        }
+      ]
     },
     {
       path: '/',

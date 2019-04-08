@@ -6,7 +6,7 @@
       <i class="iconfont icon-cha" v-show="keyword" @click="keyword = ''"></i>
       <button @click="handle">提交</button>
     </div>
-    <ul class="resultList" v-show="!isshow">
+    <ul class="resultList" v-if="!isshow">
       <li v-for="(data, index) in results" :key="index">
         <div class="pic">
           <img :src="imgBaseUrl + data.image_path" alt="">
@@ -25,7 +25,7 @@
           </div>
           <div>
             <span>起送￥10</span>
-            <span>{{data.piecewise_agent_fee.tips}}</span>
+            <!-- <span>{{data.piecewise_agent_fee.tips}}</span> -->
           </div>
           <div class="active">
             <span>{{data.promotion_info}}</span>
@@ -40,6 +40,7 @@
 <script>
 import headerTitle from '../../components/Header/Header.vue'
 export default {
+  name: 'search',
   data() {
     return {
       keyword: '',
@@ -65,7 +66,7 @@ export default {
   },
   watch: {
     results(v) {
-      if(!v.length) {
+      if(!v.length || !v.status) {
         this.isshow = true
       } else{
         this.isshow = false
@@ -76,22 +77,22 @@ export default {
 </script>
 <style lang='stylus'>
 .search
-  width:100%;
+  width:100%
   height: 100%
   .searchContent
-    text-align: center;
-    margin-top: 10px;
+    text-align: center
+    margin-top: 10px
     input
       display: inline-block
-      width: 70%;
-      height: 35px;
-      padding: 0 5px;
+      width: 70%
+      height: 35px
+      padding: 0 5px
       color: #aab0b5
-      border: 1px solid #bcbab8;
-      border-radius: 4px;
-      font-size: 18px;
-      background-color: #fff;
-      vertical-align: middle;
+      border: 1px solid #bcbab8
+      border-radius: 4px
+      font-size: 15px
+      background-color: #fff
+      vertical-align: middle
       outline: none
     .iconfont
       position: absolute 
@@ -100,14 +101,14 @@ export default {
       margin-left: -24px
       margin-top: 12px
     button
-      width: 20%; 
-      height: 35px;
-      vertical-align: middle;
-      font-size: 18px;
-      color: #fff;
-      margin-left: 10px;
-      background-color: #23a393;
-      border: 1px;
+      width: 20% 
+      height: 35px
+      vertical-align: middle
+      font-size: 18px
+      color: #fff
+      margin-left: 10px
+      background-color: #23a393
+      border: 1px
       border-radius: 4px
       outline: none
   .resultList
@@ -142,8 +143,9 @@ export default {
           overflow: hidden
           text-align: right
   .noresult
+    font-size: 15px
     text-align: center
-    background-color #aaa
+    background-color: #f2eee0
     padding: 5px 0
     margin-top: 5px
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition :name="tran">
-      <keep-alive include="index" >
+      <keep-alive :include="['index','search']" >
         <router-view></router-view>
       </keep-alive>
     </transition>
@@ -43,7 +43,7 @@ export default {
 
 <style>
 @import './assets/css/reset.css';
-@import '//at.alicdn.com/t/font_964158_z01jv441nn.css';
+@import '//at.alicdn.com/t/font_964158_m2ixcsiivbm.css';
 html,body,#app{
   height: 100%;
   overflow-x: hidden;

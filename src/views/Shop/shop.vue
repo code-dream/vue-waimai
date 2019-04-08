@@ -31,13 +31,15 @@ export default {
   height: 100%
   .tab
     display: flex
-    border-bottom: 2px solid #8080806e
+    border-bottom: 1px solid #c5c5c5
     .tabItem
       flex: 1
-      line-height: 40px
-      font-size: 20px
+      font-size: 15px
       font-weight: bold
       text-align: center
+      a
+        display: inline-block
+        padding: 5px 0
       a:link
         color: gray 
       a:visited
@@ -45,7 +47,6 @@ export default {
       a:hover
         color: green
       a.router-link-active
-        display: inline-block
         color: rgb(35,163,147)
         border-bottom: 2px solid
 </style>

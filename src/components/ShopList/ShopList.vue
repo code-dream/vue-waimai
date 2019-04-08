@@ -1,6 +1,6 @@
 <template>
   <div class="shopList">
-    <p class="tip">
+    <p class="label">
       <span class="sangang"></span>
       <span>附近商家</span>
     </p>
@@ -51,12 +51,11 @@ export default {
 </script>
 <style lang='stylus'>
 .shopList
-  .tip
+  .label
     height: 40px
     line-height: 40px
     color: #63686e
     background-color: #fff
-    border-top: 1px solid #e4e4e4
     .sangang
       display: inline-block
       width: 15px
@@ -66,23 +65,21 @@ export default {
       vertical-align: middle
       margin: 0 5px 0 10px
   .shop
-    height: 95px
+    height: 80px
     padding: 10px
-    border-bottom: 1px solid #63686e
+    border-bottom: 1px solid #eaf4ff
     .shopPic
       float: left
       width: 80px
       height: 95%
-      background: url('./image/waimai.jpg') no-repeat center center
+      background: url('./image/waimai.png') no-repeat center center
       background-size: cover
       border-radius: 8px
     .shopDetail
         height: 100%
         margin-left: 90px
         .shopName
-          height: 30px
-          line-height: 30px
-          font-size: 17px
+          font-size: 16px
           font-weight: bold
           .name
             display: inline-block
@@ -91,30 +88,33 @@ export default {
             text-overflow: ellipsis 
             white-space: nowrap
             .pp
+              display: inline-block
+              font-size: .8em
               background-color: #facd49
+              border-radius: 2px
+              padding: 3px
               margin-right: 5px
+              vertical-align: bottom
           .shopNameR
             float: right
             width: 24%
             text-align: right
             .shop-support
               display: inline-block
-              border: 1px solid #919190
+              border: 1px solid #ececec
+              border-radius: 4px
               color: #919190
-              font-size: 12px
-              line-height: 16px
-              padding: 2px 4px
+              font-size: 10px
+              padding: 3px  
         .xiaoliang
-          height: 39px
-          line-height: 39px
-          font-size: 15px
+          font-size: 12px
+          padding: 8px 0;
           span
             margin-right: 5px
           .starR
             float: right
             color: #40a798
         .qisong
-          height: 26px
-          line-height: 26px
-          font-size: 16px
+          font-size: 12px
+          padding 5px 0
 </style>

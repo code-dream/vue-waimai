@@ -87,16 +87,16 @@ export default {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 60px;
+  height: 45px;
   color: #fff;
   background-color: #33313b;
 }
 .caricon{
   position: absolute;
   margin: -25px 0 0 6%;
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
   border-radius: 50%;
   background-color: #33313b;
@@ -107,20 +107,20 @@ export default {
 }
 .caricon .quan{
   display: inline-block;
-  width: 64px;
-  height: 64px;
-  line-height: 64px;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
   border-radius: 32px;
   vertical-align: -4px;
   background-color: #23a393;
 }
 .caricon .quan .count{
   position: absolute;
-  width: 30px;
-  height: 30px;
-  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
   color: #fff;
-  line-height: 30px;
+  line-height: 20px;
   border-radius: 15px;
   background-color: red;
 }
@@ -128,22 +128,22 @@ export default {
   float: right;
   width: 30%;
   height: 100%;
-  line-height: 60px;
+  line-height: 45px;
+  font-size: 14px;
   text-align: center;
   background-color: #23a393;
 }
 .foodInf{
-  margin: 0 30% 0 26%;
-  line-height: 26px;
+  margin: 0 24% 0 26%;
 }
 .isExist{
-  font-size: 24px;
-}
-.noGoods{
   font-size: 16px;
+}
+.foodInf div:nth-child(1) {
+  padding: 5px 0;
 }
 .foodInf div:nth-child(2){
-  font-size: 16px;
+  font-size: 12px;
   color: gray;
 }
 .cart-cover{
@@ -160,7 +160,7 @@ export default {
 .cartSlide{
   position:absolute;
   z-index: 0;
-  bottom: 60px;
+  bottom: 45px;
   width: 100%;
   background-color: #fff;
 }
@@ -171,13 +171,17 @@ export default {
   box-sizing: border-box;
   justify-content: space-between;
   line-height: 44px;
-  background-color: #d6d6dc;
+  background-color: #eaeaea;
 }
 .slideHead div:first-child{
-  font-size: 20px;
+  font-size: 16px;
+}
+.slideHead a{
+  color: #4592af
 }
 .select{
   max-height: 300px;
+  font-size: 14px;
   padding: 0 18px;
   overflow: auto;
 }

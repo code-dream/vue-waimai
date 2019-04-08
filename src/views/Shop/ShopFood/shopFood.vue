@@ -25,10 +25,10 @@
                 </div>
                 <div>
                   <span class="pricea">￥{{food.price}}</span>
-                  <div class="carAdd">
-                    <CartControl :food='food' @updateCart="updateCart"/>
-                  </div>
                 </div>      
+              </div>
+              <div class="carAdd">
+                  <CartControl :food='food' @updateCart="updateCart"/>
               </div>
             </li>
           </ul>
@@ -96,9 +96,11 @@ export default {
       })
       // 取到右边滚动距离顶部的高度
       this.rScroll.on('scroll', ({x, y}) => {
+        x
         this.scrollY = Math.abs(y)
       })
       this.rScroll.on('scrollEnd', ({x, y}) => {
+        x
         this.scrollY = Math.abs(y)
       })
     },
@@ -142,63 +144,66 @@ export default {
 </script>
 <style lang='stylus'>
 .foodScroll
-  height: calc(100% - 212px)
-  overflow: hidden
+  height: calc(100% - 220px)
   .wrapone
     float: left
-    background-color: rgb(244,244,248)
-    height: calc(100% - 60px)
+    background-color: #faf9f9
+    height: 100%
     overflow: hidden
     .foodLeft
+      font-size: 14px
       .on
         color: rgb(35,163,147)
-        background-color #fff
+        background-color: #fff
       li
         width: 90px
         text-align: center
         span
           display: inline-block
           width: 70px
-          line-height: 56px 
-          border-bottom: 1px solid gray
+          border-bottom: 1px solid #dcdcdc
+          padding: 15px 0
         &:last-child
           span 
             border-bottom: 0px
   .wraptwo
-      height: calc(100% - 60px)
+      height: 100%
       margin-left: 90px
       overflow: hidden
     .foodRight
       li
         .title
           line-height: 30px
-          background-color rgb(244,244,248)
+          font-size: 14px
+          background-color: #faf9f9
           padding-left: calc(5% - 4px)
-          border-left: 4px solid gray
+          border-left: 4px solid #eaeaea
         .foodType
           li
+            position: relative
             width: 95%
-            height: 115px
             margin-left: 5%
-            border-bottom: 1px solid
+            border-bottom: 1px solid #d4d0d0
+            overflow: hidden
+            padding: 10px 0
             .pic
               float: left
-              width: 105px
-              height: 105px
+              margin-right: 10px
               img 
-                width: 105px
-                height: 105px
+                width: 70px
+                height: 70px
                 border-radius: 5px;
                 vertical-align: -16px
             .detail
               position: relative
-              margin-left: 115px
-              line-height: 26px
+              overflow: hidden
+              div
+                padding: 4px 0
               div:first-child
-                font-size: 16px
+                font-size: 14px
                 font-weight: bold
               .da
-                font-size: 13px
+                font-size: 12px
                 color: gray
                 overflow: hidden
                 white-space: nowrap
@@ -206,12 +211,18 @@ export default {
               .pricea
                 font-size: 16px
                 color: red
-              .carAdd
-                position: absolute 
-                top: 78px
-                right: 0px
             &:last-child
               border: 0px
+            .carAdd
+              position: absolute 
+              bottom: 10px
+              right: 0px
+              .add, .reduce
+                width: 20px
+                height: 20px
+                line-height: 20px
+              .iconfont
+                font-size: 16px
   .hello-enter-active,.hello-leave-active
     transition: opacity .3s
   .hello-enter, .hello-leave-to

@@ -32,6 +32,7 @@
           <span class="btn">满意28</span>
           <span class="btn">不满意2</span>
         </div>
+        <div class="dot"></div>
         <div class="isContent">
           <div class="evac">
             <i class="iconfont icon-gou"></i> 只看有内容的评价
@@ -96,32 +97,31 @@ export default {
 <style lang='stylus'>
 .evaluation
   height calc(100% - 214px)
-  background-color #f5f5f5
+  background-color #faf9f9
   overflow hidden
   .score
     height: 96px
     text-align: center
     background-color #fff
     padding: 10px
-    border-bottom: 1px solid gray
-    margin-bottom: 20px
+    margin-bottom: 10px
     .scoreL
       float: left
       width: 40%
+      font-size: 14px
       .scroeNum
         line-height: 45px
         font-size: 28px
         font-weight: bold
-        color: orange 
+        color: #f77754 
       .scoreCompare
         line-height: 25px
-        font-size: 16px
+        font-size: 14px
         color: gray 
     .scoreR
-      font-size: 16px
-      font-weight: bold
+      font-size: 14px
       margin-left: 40%
-      border-left: 1px solid gray 
+      border-left: 1px solid #dcdbdb 
       .scoreStar
         margin-left: 12%
         line-height: 32px
@@ -130,35 +130,38 @@ export default {
           margin-right: 8%
       .delivery
         margin-left: 10%
-        text-align: left
+        text-align: center
         line-height: 32px
         .deliveryTime
+          margin-left: 2px
           font-size: 16px
-          color: gray
+          color: #74b49b
   .evaluConfig
-    border-top: 1px solid gray
     padding: 20px
     background-color #fff
-    border-bottom 1px solid gray
     .evaluBtn
       .btn
         display inline-block
-        background-color #d9d9d9
-        padding: 10px
+        font-size: 14px
+        background-color #8fbbaf
+        padding: 8px
+        border-radius: 4px
         & + .btn
-          margin-left: 20px
+          margin-left: 10px
+    .dot
+      border-top: 1px dotted #dedede
+      margin: 20px 0
     .isContent
-      line-height 50px
       .evac
         display: inline-block
-        font-size: 16px
+        font-size: 14px
         line-height: 16px
-        vertical-align bottom
         .iconfont
           font-size: 26px
           color: #d9d9d9
           vertical-align: middle
   .evaluInf
+    font-size: 14px
     padding: 0 20px
     background-color #fff
     li.inflist
@@ -180,13 +183,18 @@ export default {
             color: gray
         .evaluStar
           line-height: 24px
+        .evaluContent
+          line-height: 20px
         .label
           margin-top: 5px
+          overflow: hidden
           div
-            display inline-block
-            border: 1px solid #d9d9d9
-            padding: 5px
-            & + div
-              margin-left: 5px
+            float: left
+            font-size: 12px
+            color: #ffffff
+            padding: 3px
+            border-radius: 4px
+            background-color #74b49b
+            margin-right: 2px
 </style>
 

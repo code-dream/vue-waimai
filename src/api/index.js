@@ -36,4 +36,8 @@ export const reqShopFood = () => ajax('/foods')
 
 export const reqShopEvaluate = () => ajax('/evaluate')
 
+
 export const reqShopInfo = () => ajax('/info')
+
+// 更新用户信息
+export const updateUserInf = (a, data) => ajax(BASE_URL + '/updateInf/' + a, data)

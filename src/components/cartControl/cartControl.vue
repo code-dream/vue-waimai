@@ -43,42 +43,36 @@ export default {
 </script>
 <style>
 .cartContain{
-  padding: 0 20px;
+  padding: 0 10px;
 }
 .reduce,.count,.add{
   display: inline-block;
-  width: 28px;
-  height: 28px;
-  line-height: 28px;
   box-sizing: border-box;
   text-align: center;
-  font-size: 22px;
   color: #23a393;
   border-radius: 15px;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .reduce{
   border: 1px solid #23a393;
 }
 .count{
   color: #abc1bf;
+  width: 28px;
 }
 .add{
   color: #fff;
   background-color: #23a393;
   border: 1px solid #23a393;
 }
-.cartContain i{
-  font-size: 24px;
-}
 .reduceS .reduce, .reduceS .add, .reduceS .count{
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 18px;
 }
-.reduceS i{
-  font-size: 20px;
+.reduceS .iconfont{
+  font-size: 18px;
 }
 
 /* 以下购物车空间按钮的动画效果 */

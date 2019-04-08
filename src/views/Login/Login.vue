@@ -164,18 +164,18 @@ export default {
 <style lang='stylus'>
 .login
   .loginHead
-    height: 55px;
-    line-height: 55px;
+    height: 48px;
+    line-height: 48px;
     background-color: #23a393;
     color: #fff;
     .iconfont
-      font-size: 32px;
+      font-size: 28px;
   .loginContent
     text-align: center;
     .loginTitle
       height: 100px;
       line-height: 100px;
-      font-size: 36px;
+      font-size: 30px;
       font-weight: bold;
       color: #0c907d;
     .loginWay
@@ -183,7 +183,7 @@ export default {
       line-height: 32px;
       a
         display: inline-block;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         color: #0c907d;
         &:nth-child(1)
@@ -228,11 +228,12 @@ export default {
         width: 80%;
         height: 50px;
         line-height: 50px;
-        font-size: 20px;
+        font-size: 16px;
         border: 1px solid #bcbab8;
         border-radius: 4px;
         padding-left: 35px;
         box-sizing: border-box;
+        outline-color: #3bb4c1
       .switch
         display: inline-block;
         position: absolute;

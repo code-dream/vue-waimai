@@ -3,8 +3,8 @@
     <swiper :options='swiperOption' v-if="swiperInf.length">
       <swiperSlide class="mainWrap" v-for="(swiperData, index) in swiperInf" :key="index">
         <a href="javascript:" class="mainContent" v-for="(item, index) in swiperData" :key="index">
-          <img :src="baseImageUrl + item.image_url" alt="" width="55%"><br>
-          {{item.title}}
+          <img :src="baseImageUrl + item.image_url" alt="" width="50%">
+          <div>{{item.title}}</div>
         </a>
       </swiperSlide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -58,15 +58,14 @@ export default {
 
 <style lang='stylus'>
 .lunbo
-  border-bottom: 1px solid #e4e4e4
-  margin-bottom: 14px
   padding-top: 55px
   .mainWrap
     display: flex
     flex-wrap: wrap
     .mainContent
       width: 25%
-      height: 100px
+      font-size: 14px
+      padding-bottom: 15px
       text-align: center
       color: #63686e
 </style>
